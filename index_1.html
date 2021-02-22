@@ -9,13 +9,53 @@
     <script src="https://kit.fontawesome.com/f2dbb08f8a.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,700&display=swap" rel="stylesheet">
-<link rel="icon" type="image.png" href="D_images/favicon.png">
+<link rel="icon" type="image.png" href="D_image/favicon.png">
 <link rel="stylesheet" href="style.css">
 <script scr="main.js" defer></script>
-/*항상 마지막에는 defer 옵션 써야됨->html파일이 purshing 되는 동안 자바스크립트 파일을 동시에 다운받아서 실행*/
+<style>
+    .navbar_logo {
+    display:flex;
+    flex-direction: row;
+    padding: 10px;
+    margin: 10px;
+}
+
+</style>
+
     <title>NY'S Portfolio</title>
 </head>
 <body>
-    
+    <!-- NAVBAR -->
+    <nav id = "navbar">
+        <div class="navbar_logo">
+           <img src="D_image/favicon.png" alt="icon_img" width = "25" height = "25">
+           <a href="#">NamYeong</a>
+        </div>
+
+        <div class="navbar_menu">
+            <ul class="navbar_menu">
+                <li class="navbar_menu_items">Home</li>
+                <li class="navbar_menu_items">About</li>
+                <li class="navbar_menu_items">skills</li>
+                <li class="navbar_menu_items">My work</li>
+                <li class="navbar_menu_items">Testimonials</li>
+                <li class="navbar_menu_items">Contact</li>
+            </ul>
+
+
+        </div>
+
+    </nav>
+
+    <!-- ABOUT -->
+    <section id="about"></section>
+    <!-- SKILLS -->
+    <section id="skills"></section>
+    <!-- WORK -->
+    <section id="work"></section>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials"></section>
+    <!-- CONTACT -->
+    <section id="contact"></section>
 </body>
 </html>
