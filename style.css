@@ -49,6 +49,12 @@ ul {
   list-style: none;
   padding-left: 0px;
 }
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
 /*Typography  */
 h1 {
   font-size: var(--font-large);
@@ -107,5 +113,31 @@ img {
 }
 .navbar_menu_items:hover {
   background-color: var(--color-dark-pink);
+  border-radius: var(--size-border-radius);
+}
+/* Home */
+#Home {
+  background: url("D_image/background.png") center/cover no-repeat;
+  padding: 40px;
+  text-align: center;
+}
+
+.home_avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 2px solid lightblue;
+}
+.home_title,
+.home_description {
+  color: var(--color-white);
+}
+.home_contact {
+  color: var(--color-white);
+  font-size: var(--font-regular);
+  font-weight: var(--weigh-bold);
+  margin: 24px 24px;
+  padding: 8px 12px;
+  border: 2px solid var(--color-white);
   border-radius: var(--size-border-radius);
 }
