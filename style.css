@@ -28,6 +28,9 @@
 
   /* Size */
   --size-border-radius: 4px;
+
+  /* Animation duration */
+  --animation-duration: 300ms;
 }
 
 /* Universal tags */
@@ -40,6 +43,7 @@ body {
   font-family: "Open Sans", sans-serif;
   margin: 0px;
   cursor: default;
+  max-width: 1200px;
 }
 a {
   text-decoration: none;
@@ -140,4 +144,70 @@ img {
   padding: 8px 12px;
   border: 2px solid var(--color-white);
   border-radius: var(--size-border-radius);
+}
+/* About me */
+
+/* Section common */
+.section {
+  padding: 50px;
+  text-align: center;
+  margin: auto;
+}
+.about_majors {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 80px 0;
+}
+.major_icon {
+  width: 170px;
+  height: 170px;
+  font-size: 70px; /*awesomefont도 font이다 */
+  line-height: 170px;
+  margin: auto;
+  border: 1px solid var(--color-blue);
+  border-radius: 50%;
+  margin-bottom: 16px;
+  color: var(--color-blue);
+  transition: all 1s;
+}
+.major_icon i {
+  transition: all var(--animation-duration) ease;
+}
+.major_icon:hover i {
+  color: var(--color-pink);
+  transform: rotate(-30deg) scale(1.1);
+}
+.major_title,
+.major_description {
+  color: var(--color-dark-grey);
+}
+.major_description {
+  font-size: var(--font-small);
+}
+
+.job {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.job_description {
+  margin: 16px;
+  text-align: left;
+}
+.job_name,
+.job_period {
+  color: var(--color-light-grey);
+}
+.job_name {
+  font-size: var(--font-small);
+}
+.job_period {
+  font-size: var(--font-micro);
+}
+.job_logo {
+  width: 70px;
+  height: 70px;
+  border: 1px solid var(--color-blue);
+  border-radius: 50%;
 }
