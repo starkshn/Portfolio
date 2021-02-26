@@ -23,12 +23,41 @@
 
   /* Font weight */
   --weigh-bold: 700;
-  --weigh-semi-bolde: 600;
-  --weigh--regular: 400;
+  --weight-semi-bolde: 600;
+  --weight--regular: 400;
 
   /* Size */
 }
 /* Universal tags */
 * {
   box-sizing: border-box;
+}
+
+/* 웹사이트 전반적으로 쓰여진 패딩에 대해서 텍스트에대해서 스타링일 먼저 해놓고 스타일링하껀데 이런것들을*/
+
+/*Typography  */
+h1 {
+  font-size: var(--font-large);
+  font-weight: var(--weight-bold);
+  color: var(--color-black);
+  margin: 16px 0px;
+}
+h2 {
+  font-size: var(--font-medium);
+  font-weight: var(--weight-semi-bolde);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+h3 {
+  font-size: var(--font-regular);
+  font-weight: var(--weight--regular);
+  color: var(--color-black);
+  margin: 8px 0;
+}
+p {
+    font-size: var(--font-regular);
+  font-weight: var(--weight--regular);
+  color: var(--color-black);
+  margin: 4px 0;
+}
 }
