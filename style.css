@@ -95,9 +95,10 @@ p {
   justify-content: space-between;
   background-color: var(--color-pink);
   align-items: center;
-  color: var(--color-white);
   padding: 16px;
+  color: var(--color-white);
 }
+
 .navbar_logo {
   display: flex;
   align-items: center;
@@ -123,6 +124,16 @@ img {
   background-color: var(--color-dark-pink);
   border-radius: var(--size-border-radius);
 }
+
+.navbar_toggle-button {
+  position: absolute;
+  right: 24px;
+  top: 45px;
+  font-size: 24px;
+  color: var(--color-white);
+  display: none;
+}
+
 /* Home */
 #Home {
   background: url("D_image/background.png") center/cover no-repeat;
@@ -419,4 +430,37 @@ testimonial_avatar:nth-child(even) {
 }
 .contact_links i {
   transition: all var(--animation-duration) ease-in;
+}
+
+/* For below 768px screen width */
+@media screen and (max-width: 768px) {
+  .navbar_toggle-button {
+    display: block;
+  }
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar_menu {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    display: none;
+  }
+  .about_majors {
+    flex-direction: column;
+  }
+  .major {
+    margin-bottom: 38px;
+  }
+  .skillset {
+    flex-direction: column;
+  }
+  .project {
+    flex-grow: 1;
+  }
+  .testimonial_avatar {
+    width: 80px;
+    height: 80px;
+  }
 }
