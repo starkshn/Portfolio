@@ -23,16 +23,36 @@ navbarMenu.addEventListener('click' , (event) => {
     if(link == null) {
         return;
     }
-    console.log(event.target.dataset.link);
-    const scrollTo = document.querySelector(link);
-    scrollTo.scrollIntoView({behavior: 'smooth'});
-});
+    scrollIntoView(link);
+})
 // Handle scrolling when tapping on the navbar
 
 // const item = document.querySelector("navbar_menu_items");
 // const move = 
 
-// document.addEventListener('click' , () =>{
+// document.addEventListßner('click' , () =>{
     
 // })
 
+
+// Hnadle click on "contact me" button on home
+
+// 내가 한거
+// const contactMe = document.querySelector(".home_contact");
+// contactMe.addEventListener('click' , (event) => {
+//     console.log('good');
+//     const link = event.target.dataset.link;
+//     const moveContact = document.querySelector(link);
+//     moveContact.scrollIntoView({behavior: 'smooth'});
+// });
+// 내가 한거 끝
+
+const homeContactBtn = document.querySelector(".home_contact")
+homeContactBtn.addEventListener('click' , () => {
+    scrollIntoView("#contact");
+})
+
+function scrollIntoView(selector) {
+    const scrollTo = document.querySelector(selector)
+    scrollTo.scrollIntoView({behavior: 'smooth'}); 
+}
