@@ -47,6 +47,7 @@ navbarMenu.addEventListener('click' , (event) => {
 // });
 // 내가 한거 끝
 
+// 엘리가 한거
 const homeContactBtn = document.querySelector(".home_contact")
 homeContactBtn.addEventListener('click' , () => {
     scrollIntoView("#contact");
@@ -56,3 +57,34 @@ function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector)
     scrollTo.scrollIntoView({behavior: 'smooth'}); 
 }
+// 끝 
+
+
+// Make home slowly fade to transparent as the window scrolls down
+
+//내가 한거
+// const homeBody = document.querySelector("#Home");
+// const homeHeight = homeBody.getBoundingClientRect().height;
+// document.addEventListener('scroll' , () => {
+//     if (window.scrollY >= (homeHeight * 0.5)) {
+//         homeBody.classList.add("homeBody--transparent1");
+//     }
+//     if (window.scrollY === homeHeight) {
+//         homeBody.classList.add("homeBody--transparent2");
+//     }
+//     if (window.scrollY < (homeHeight * 0.5)) {
+//         homeBody.classList.remove("homebody--transparent1");
+//         homeBody.classList.remove("homebody--transparent2");
+//     }
+// })
+// 내가 한거 끝
+
+// 엘리가 한거
+const home = document.querySelector('.home__container');
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener('scroll' , () => {
+    // console.log(1 - window.scrollY / homeHeight) 맞다
+    home.style.opacity = 1 - (window.scrollY / homeHeight);
+})
+
+
