@@ -33,8 +33,10 @@ navbarMenu.addEventListener('click' , (event) => {
 // document.addEventListßner('click' , () =>{
     
 // })
+// -------------------------------------------------
 
 
+//---------------------------------------------
 // Hnadle click on "contact me" button on home
 
 // 내가 한거
@@ -57,9 +59,12 @@ function scrollIntoView(selector) {
     const scrollTo = document.querySelector(selector)
     scrollTo.scrollIntoView({behavior: 'smooth'}); 
 }
-// 끝 
+// 엘리가 한거끝 
+// -------------------------------------------------
 
 
+
+// -------------------------------------------------
 // Make home slowly fade to transparent as the window scrolls down
 
 //내가 한거
@@ -86,5 +91,45 @@ document.addEventListener('scroll' , () => {
     // console.log(1 - window.scrollY / homeHeight) 맞다
     home.style.opacity = 1 - (window.scrollY / homeHeight);
 })
+// 아까는 #Home 으로 하면 전체다가 tranparent 됬는데 html 파일에 home__container 만들어서 그안에 원래 있던거 다넣고
+// querySelector(.home__container) 로 바꿔줌으로써 home 안에있는 contents들만 투명히게 만들어 줬다.
+
+// -------------------------------------------------
 
 
+// ------------------------------------------
+// make arrow button when scroll down 내가 한거임
+// const Arrow = document.querySelector("#Arrow");
+// window.addEventListener('scroll' , () => {
+//     if(this.scrollY > 300) {
+//         Arrow.classList.add('ArrowOn');
+//     } else {
+//         Arrow.classList.remove('ArrowOn');
+//     }
+    
+// })
+
+// Arrow.addEventListener('click' , () => {
+//     scrollIntoView("#Home");
+// })
+// 내가 한거 끝
+
+// Show "arrow up" button when scrolling down
+const arrowUp = document.querySelector('.arrow-up')
+document.addEventListener('scroll' , () => {
+    if (window.scrollY > homeHeight / 2 ) {
+        arrowUp.classList.add('visible');
+    } else {
+        arrowUp.classList.remove('visible');
+    }
+})
+
+// Handle clcik on the "arrow up" button
+arrowUp.addEventListener('click' , () => {
+    scrollIntoView("#Home");
+})
+
+
+
+
+// --------------------------------------------

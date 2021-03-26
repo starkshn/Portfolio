@@ -44,6 +44,7 @@ body {
   font-family: "Open Sans", sans-serif;
   margin: 0px;
   cursor: default;
+  margin-top: 0%;
 }
 .section_container {
   max-width: 1000px;
@@ -88,7 +89,6 @@ p {
   color: var(--color-black);
   margin: 4px 0;
 }
-
 /* Navbar */
 #navbar {
   position: fixed;
@@ -107,7 +107,7 @@ p {
 #navbar.navbar--dark {
   background-color: var(--color-pink);
   padding: 8px;
-
+  
 }
 .navbar_logo {
   display: flex;
@@ -358,7 +358,7 @@ img {
   display: flex;
   flex-direction: column;
   justify-content: center;
-
+  
   width: 100%;
   height: 100%;
   opacity: 0;
@@ -476,4 +476,52 @@ testimonial_avatar:nth-child(even) {
     width: 80px;
     height: 80px;
   }
+}
+
+/* 내가한 Arrow */
+/* .fa-arrow-up {
+  transition: all var(--animation-duration) ease-in;
+  color: white;
+  border-radius: 50%;
+}
+#Arrow.ArrowOn {
+  cursor: pointer;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  padding: auto;
+  right: 250px;
+  bottom: 50px;
+  width: 80px;
+  height: 80px;
+  font-size: 50px;
+  color: white;
+  border: solid whitesmoke;
+  border-radius: 50%;
+  background-color: var(--color-pink);
+
+} */
+
+/* 엘리의 Arrow */
+/* Scroll */
+.arrow-up {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  width: 70px;
+  height: 70px;
+  font-size: 50px;
+  background-color: var(--color-pink);
+  color: white;
+  border-radius: 50%;
+  opacity: 0;
+  transition: all 300ms ease-in;
+  pointer-events: none;
+}
+
+.arrow-up.visible{
+  opacity: 1;
+  pointer-events: auto;
 }
