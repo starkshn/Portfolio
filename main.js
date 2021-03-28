@@ -147,8 +147,24 @@ workBtnContainer.addEventListener('click' , (e) => {
     if(filter == null) {
         return;
     }
+
+    // 21.03.28 
+    // Remove Selection from the previous item and select the new one
+    const active = document.querySelector('.catagory_btn.selected');
+    active.classList.remove('selected')
+    const target = 
+    e.target.nodeName === 'BUTTON' ? e.target : e.target.parentNode;
+    // e.targe의 nodeName이 ,지금 클릭된 target의 nodeName이 BUTTON이라면 e.target이거 그대로 쓰고 만약 BUTTON이 아니라면
+    //  e.target의 parentNode로 지정해줄꺼다 
+    // 이렇게 target을 정확하게 지정한다음에 항상 target에는 button 만 지정이된다.
+
+    // e.target.classList.add('selected'); 그래서 이렇게가 아니라
+    target.classList.add('selected')
+    // 근데 여기서 이대로 포트폴리오에서 숫자 노란색 누르면 에러뜨는데 이것은 span이다.
+    // 우리가 span 에다가 클래스 selected를 헐당하고있던거였다.
+    // 그냥 target에다가 selected를 할당하는것이 아니라
+
     // console.log(filter);
-    
     projectContainer.classList.add('anim-out'); //  이상태로 놔두면 css에서 opacity가 0으로 계속 남아있는다. 그래서 어느정도의 시간이 지나면 class의 anim-out을 없애 줘야한다.
     setTimeout(() => {
         projects.forEach((project) => {
@@ -177,6 +193,7 @@ workBtnContainer.addEventListener('click' , (e) => {
 // });
 // 이런 코드가 다 완료된 다음에 브라우져에서 업데이트 되서 사용자에게 보여졌다면
 // 지금은 anim-out이 클래스를 추가한다음에 이 코드는 끝이난다.
+
 // 그래서 
 // setTimeout(() => {
 //     projects.forEach((project) => {
@@ -189,6 +206,7 @@ workBtnContainer.addEventListener('click' , (e) => {
 //     });
 //     projectContainer.classList.remove('anim-out');
 // },300)
+
 // 그래서 이 setTimeout() 함수는 300ms 후에 호출되어진다 누구로부터? 브라우져로부터 왜냐하면 setTimeout()은 브라우져에서 제공하는 api이기 떄문에 그래서 위에 setTimeout() => 이 코드는 "브라우져야 이 setTimeout() 코들ㄹ 0.3초 후에 실행햐줘" 라고 전달만 해놓고
 // setTimeout(() => {
 //     projects.forEach((project) => {
@@ -202,3 +220,12 @@ workBtnContainer.addEventListener('click' , (e) => {
 //     projectContainer.classList.remove('anim-out');
 // },300)
 // 이 블록을 끝내는 거다
+
+// navbar active 수정 21.03.28
+// const active = document.querySelector(".navbar_menu");
+// active.addEventListener('click' , (e) => {
+//     const menu = e.target
+//     if(menu === )
+//     menu.classList.add("active");
+// })
+
