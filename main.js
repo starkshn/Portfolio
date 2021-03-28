@@ -130,6 +130,75 @@ arrowUp.addEventListener('click' , () => {
 })
 
 
-
-
 // --------------------------------------------
+
+// click My Work Park //
+
+// Projects
+const workBtnContainer = document.querySelector('.work_catagories');
+const projectContainer = document.querySelector('.work_projects');
+const projects = document.querySelectorAll('.project');
+// const projects 해가지고 work_projects에 있는 애들을 전부 배열로 받겠다.
+
+workBtnContainer.addEventListener('click' , (e) => {
+    const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+    // event안에있는 target안에 있는 dataset안에있는 filter의값들을 받아 올게
+    // || e에 있는 target에 있는 parentNode에 있는 dataset을 받아올게이다.
+    if(filter == null) {
+        return;
+    }
+    // console.log(filter);
+    
+    projectContainer.classList.add('anim-out'); //  이상태로 놔두면 css에서 opacity가 0으로 계속 남아있는다. 그래서 어느정도의 시간이 지나면 class의 anim-out을 없애 줘야한다.
+    setTimeout(() => {
+        projects.forEach((project) => {
+            console.log(project.dataset.type);
+            if(filter === "*" || filter === project.dataset.type) {
+                project.classList.remove('invisible');
+            } else {
+                project.classList.add('invisible');
+            }
+        });
+        projectContainer.classList.remove('anim-out');
+    },300)
+});
+
+// 여기에서 중요한게 모든 코드는 동기적으로 처리가 됩니다. 그래서 class에서 anim-out을 추가하자마자 모든 projects의 DOM element에 필요없는 project들을 다 filtering 한다음에 코드가 완료되면 브라우져에서 업데이트(css에서의 anim-out 효과) 되기 떄문이다. 그래서 뭔가 민망한 anim-out이 발생한다.
+// 그래서 우리가 원하는것은 anim-out이 된다음에(보여진 다음에) filtering 된애들이 적용되게 해줘야 한다. 그래서 이렇게 
+
+//즉 아까 앞에서는 anim-out이라는 클래스를 추가하고
+// projects.forEach((project) => {
+//     console.log(project.dataset.type);
+//     if(filter === "*" || filter === project.dataset.type) {
+//         project.classList.remove('invisible');
+//     } else {
+//         project.classList.add('invisible');
+//     }
+// });
+// 이런 코드가 다 완료된 다음에 브라우져에서 업데이트 되서 사용자에게 보여졌다면
+// 지금은 anim-out이 클래스를 추가한다음에 이 코드는 끝이난다.
+// 그래서 
+// setTimeout(() => {
+//     projects.forEach((project) => {
+//         console.log(project.dataset.type);
+//         if(filter === "*" || filter === project.dataset.type) {
+//             project.classList.remove('invisible');
+//         } else {
+//             project.classList.add('invisible');
+//         }
+//     });
+//     projectContainer.classList.remove('anim-out');
+// },300)
+// 그래서 이 setTimeout() 함수는 300ms 후에 호출되어진다 누구로부터? 브라우져로부터 왜냐하면 setTimeout()은 브라우져에서 제공하는 api이기 떄문에 그래서 위에 setTimeout() => 이 코드는 "브라우져야 이 setTimeout() 코들ㄹ 0.3초 후에 실행햐줘" 라고 전달만 해놓고
+// setTimeout(() => {
+//     projects.forEach((project) => {
+//         console.log(project.dataset.type);
+//         if(filter === "*" || filter === project.dataset.type) {
+//             project.classList.remove('invisible');
+//         } else {
+//             project.classList.add('invisible');
+//         }
+//     });
+//     projectContainer.classList.remove('anim-out');
+// },300)
+// 이 블록을 끝내는 거다
