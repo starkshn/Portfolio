@@ -14,6 +14,7 @@ document.addEventListener('scroll' , () => {
 
     
 });
+
 // arrow function 아무런 인자를 받지않고 블럭{}을 실행해줘 라는뜻
 
 const navbarMenu = document.querySelector('.navbar_menu');
@@ -23,8 +24,32 @@ navbarMenu.addEventListener('click' , (event) => {
     if(link == null) {
         return;
     }
+    navbarMenu.classList.remove('open');
     scrollIntoView(link);
 })
+
+// 21.03.30 
+// Navbar toggle button for small screen
+const navbarToggleBtn = document.querySelector('.navbar_toggle-button');
+navbarToggleBtn.addEventListener('click' , () => {
+    navbarMenu.classList.toggle('open');
+});
+
+
+// 내가 해본거 21.03.29 navbar_toggle_btn + 21.03.30 
+// if (window.matchMedia("screen and (max-width: 769px)").matches) {
+//     const toggleBtn = document.querySelector(".navbar_toggle-button");
+//     toggleBtn.addEventListener('click' , (event) => {
+//         const spread = event.target;
+//         if (event.target == '.fa-bars') {
+//             spread = event.target.parentNode;
+//         }
+//         spread.classList.add("spread");
+//     })
+// }
+// 이까지 내가 해본거 21.03.30 navbar_toggle_btn
+
+
 // Handle scrolling when tapping on the navbar
 
 // const item = document.querySelector("navbar_menu_items");
