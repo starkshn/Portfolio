@@ -174,7 +174,9 @@ img {
   border: 2px solid var(--color-white);
   border-radius: var(--size-border-radius);
 }
-
+.home_contact:hover {
+background-color: var(--color-orange);
+}
 /* About me */
 
 /* Section common */
@@ -301,7 +303,11 @@ img {
   border-radius: var(--size-border-radisus);
   font-size: var(--font-regular);
   padding: 8px 48px;
+  position: relative;
+  
 }
+
+
 .catagory_btn.selected,
 .catagory_btn:hover {
   background-color: var(--color-pink);
@@ -314,7 +320,7 @@ img {
 .catagory_btn.selected .catagory_count,
 .catagory_btn:hover .catagory_count {
   opacity: 1;
-  top: 0;
+  top: 5px;
 }
 
 /* ->.catagory_btn:hover의 .catagory_count 일때 */
@@ -327,11 +333,12 @@ img {
   height: 24px;
   display: inline-block;
   line-height: 24px;
-  position: relative;
-  top: -20px;
-  left: 4px;
+  position: absolute;
+  top: -24px;
+  right: 16px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in;
+  
 }
 
 /* span은 컨텐치를 꽉 감싸주는 사이즈로 정해주기떄문에 동그라미가 예쁘지않다 */
@@ -472,8 +479,23 @@ testimonial_avatar:nth-child(even) {
 
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
+  :root {
+   /* Font size */
+  --font-large: 30px;
+  --font-medium: 18px;
+  --font-regular: 16px;
+  --font-small: 14px;
+  --font-micro: 12px; 
+  }
+  .section{
+    width: 100%;
+    padding-top:70px;
+  }
   .navbar_toggle-button {
     display: block;
+    top: 21px;
+    right: 20px;
+    font-size: var(--font-large);
   }
   
   #navbar {
@@ -494,10 +516,37 @@ testimonial_avatar:nth-child(even) {
   .navbar_menu.open {
     display: none;
   }
-
+  .section {
+    padding: auto;
+    margin: 0px;
+  }
+  .about_majors{
+    flex-direction: column;
+    margin-top: 30px;
+    margin-bottom: 0px;
+    
+  }
+  
+  .home__container {
+    display: column;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .home_avatar {
+    padding: auto;
+  }
+  .catagory_btn {
+    padding: 8px;
+    width: 100%;
+    margin: 5px 0px;
+  }
   .about_majors {
     flex-direction: column;
   }
+  .
+
   .major {
     margin-bottom: 38px;
   }
@@ -507,9 +556,31 @@ testimonial_avatar:nth-child(even) {
   .project {
     flex-grow: 1;
   }
+  .testimonial {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+  }
   .testimonial_avatar {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
+    order: 1;
+    margin: 10px;
+    padding: 0px;
+
+  }
+  .testimonial_speech-bubble {
+    order: 2;
+  }
+  .arrow-up.visible {
+  width: 40px;
+  height: 40px;
+  font-size: 30px;
+  line-height: 40px;
+  right: 20px;
+  bottom: 20px;
   }
 }
 

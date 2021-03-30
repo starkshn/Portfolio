@@ -51,10 +51,8 @@ navbarToggleBtn.addEventListener('click' , () => {
 
 
 // Handle scrolling when tapping on the navbar
-
 // const item = document.querySelector("navbar_menu_items");
 // const move = 
-
 // document.addEventListßner('click' , () =>{
     
 // })
