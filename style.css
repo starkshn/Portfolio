@@ -488,11 +488,11 @@ testimonial_avatar:nth-child(even) {
     flex-direction: column;
     text-align: center;
     width: 100%;
-    display: none;
+    display: block;
   }
 
   .navbar_menu.open {
-    display: block;
+    display: none;
   }
 
   .about_majors {
