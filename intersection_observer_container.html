@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 600px;
+        height: 800px;
+        margin: 200px;
+        overflow-y: scroll;
+        background-color: lightyellow;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        margin: 80px auto;
+        background-color: plum;
+        transition: 500ms;
+      }
+
+      .box.active {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+      <div class="box">18</div>
+      <div class="box">19</div>
+      <div class="box">20</div>
+    </div>
+
+    <script>
+    const boxes = document.querySelectorAll('.box');
+    const option  = {
+      root: document.querySelector('.container'), // 지금 박스들은 root 가 null이면  container에는 상관없이 사용자에게 보여지기만하면 색이 변한다. 근데 이렇게 쿼리셀렉터로 지정해주게되면 브라우져 윈도우의 크기와는 상관없이 컨테이너 안에서보여지면 보라색으로 변하게 해준다. 
+      // 따라서 루트 같은 경우는 내가 어떤걸 기준으로 요소가 들어오고 나가는지를 확인하고싶을 댸 그 부모 컨테이너를 지정해줄 수가 있다.
+      rootMargin: '0px' ,
+      threshold: 0.2
+    };
+    const callback = (entries , observer) => {
+      entries.forEach(entry => {
+        console.log(entry.target);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');          
+        } else {
+          entry.target.classList.remove('active');
+        }
+
+      })
+    };
+    const observer = new IntersectionObserver(callback , option);
+
+    boxes.forEach(box => observer.observe(box));
+    
+    </script>
+  </body>
+</html>

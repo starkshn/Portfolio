@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        margin: 80px auto;
+        background-color: plum;
+        transition: 3000ms;
+      }
+
+      .box.active {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">1</div>
+    <div class="box">2</div>
+    <div class="box">3</div>
+    <div class="box">4</div>
+    <div class="box">5</div>
+    <div class="box">6</div>
+    <div class="box">7</div>
+    <div class="box">8</div>
+    <div class="box">9</div>
+    <div class="box">10</div>
+    <div class="box">11</div>
+    <div class="box">12</div>
+    <div class="box">13</div>
+    <div class="box">14</div>
+    <div class="box">15</div>
+    <div class="box">16</div>
+    <div class="box">17</div>
+    <div class="box">18</div>
+    <div class="box">19</div>
+    <div class="box">20</div>
+
+    <script>
+    const boxes = document.querySelectorAll('.box')
+     // 이 IntersectionObserver라는 것은 웹API에서 제공하는 것중에 하나로 우리기 원하는 요소가 특정한 영역에 들어왔을떄 알려주는 우리의 콜백함수를 호출해주는 관찰자 입니다.
+    // IntersectionObserver() parameter로 원하는 콜백함수를 전달할 수가 잇다. 이 옵저버에 전달해야 하는 콜백함수는 entries , observer가 있다.
+
+//    const observer = new IntersectionObserver( () => {} ) 
+//    콜백함수는 이런 형태에이다. 콜백함수에는 entries와 observer를 전달 해주니까 54번쨰 코드(밑에처럼 해줄 수 가 있다.)
+//    const observer = new IntersectionObserver((entrise , observer) => {
+//      console.log('observe!');
+//    });
+//    boxes.forEach(box => observer.observe(box)); observe 라는 api 호출 해서 관찰자가 관찰하도록 명령 해놓은 상태이다.
+//    그래서 이 observer 라는것은 관찰하는 요소들이 화면에 들어오거나 나갈때 우리가 등록한 이 콜백함수를 호출해준다 
+
+    const option  = {
+      // 루트라는것은 기본적으로 설정하지않으면 null로 설정되어있다.
+      root: null , // 따로 명시하지않으면 viewport가 사용되어진다. (우리가 보는 윈도우 부분을 말한다.)
+
+      rootMargin: '0px' ,// 0~1 (100%) // 이렇게 rootMargin 을 100Px 해놓으면 사용자에게 보여지기 전에 색이 변해서 올라온다 -> 왜냐하면 viewport의 마진이 100px 이라서 100px만큼 먼저 콜백함수가 수행하기떄문에. 이것을 사용하는 경우에는 사용자에게 현재 보여지지는 않지만 근접해 있는경우 내가 이미지를 먼저 로딩해놓겠다 필요한 컨텐츠를 미리 준비를 해놓겟다 할떄 쓸 수가 있다.
+
+      threshold: 0.5 // threshold는 바로 얼마만큼 보여져야 콜백함수를 호출할지 결정되는것이다. 기본값은 0이다. 근데 나는 전체 다 들어와야지 처리를 하고싶으면 threshold: 1; 로 설정을 하면된다.
+      // 근데 중요한 한가지 포인트는 threshold를 설정하게되면 들어올떄는 정해진값이 되고 나갈떄는 즉, isIntersecting(들어올떄 true 나갈때 false)일때는 정해진 threshold가 적용이 되고 반대의 경우는 지정된 값의 반대이다. 즉 threshold가 지금 1이니까 나갈때는 0이 반대의 값이 되는거다 그래서 threshold가 조금만 나가도 콜백함수가 수행이된다.  threshold: 0.5면 들어올떄 50%정도 들어오면 수행이되고 나갈떄도 50% 정도가 나가면 색이다시 연해진다(콜백함수가 수행이된다.)
+    }
+
+    const callback = (entries , observer) => {
+      // entries는 배열이기 떄문에 entry라는 것으로 entries 빙글빙글 돌면서 작업해주면된다.
+      entries.forEach(entry => {
+        console.log(entry.target); // 요소들의 들어옴과 나가는것의 처리
+        if(entry.isIntersecting) {
+        entry.target.classList.add('active');
+          console.log(entry.target);
+
+        } else {
+          entry.target.classList.remove('active');
+          console.error(entry.target);
+        }
+      })
+      console.log(entries);
+      console.log(observer);
+    };
+    const observer = new IntersectionObserver(callback , option);
+    
+    boxes.forEach(box => observer.observe(box));
+    // 각각의 박스들을 돌면서 관찰을 해볼꺼다.
+      </script>
+  </body>
+</html>

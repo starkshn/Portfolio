@@ -109,6 +109,7 @@ p {
   padding: 8px;
   
 }
+
 .navbar_logo {
   display: flex;
   align-items: center;
@@ -135,6 +136,9 @@ img {
   border: 1px solid white;
   background-color: var(--color-dark-pink);
   border-radius: var(--size-border-radius);
+}
+.navbar_menu_items.active {
+  border: 1px solid var(--color-white);
 }
 
 .navbar_toggle-button {
@@ -307,7 +311,6 @@ background-color: var(--color-orange);
   
 }
 
-
 .catagory_btn.selected,
 .catagory_btn:hover {
   background-color: var(--color-pink);
@@ -365,7 +368,6 @@ background-color: var(--color-orange);
   justify-content: center;
   align-items: center;
 }
-
 
 .project.invisible {
   display: none;
